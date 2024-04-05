@@ -186,7 +186,12 @@ $datepicker-item-selected-background-color: $primary !default;
                             // Currently datepicker only uses primary coloring
                             // Ensure indicator is visible when selected
                             &.is-primary {
-                                background-color: lighten($primary, 15);
+                                @if $primary == 'var(--color-primary-500)' {
+                                    background-color: var(--color-primary-300);
+                                }
+                                @if $primary != 'var(--color-primary-500)' {
+                                    background-color: lighten($primary, 15);
+                                }
                             }
                         }
                     }
