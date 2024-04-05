@@ -11,7 +11,12 @@
             &.is-#{$name} {
                 background: $color;
                 &:hover {
-                    background-color: darken($color, 10%);
+                    @if $color == 'var(--color-primary-500)' {
+                        background-color: var(--color-primary-700)
+                    }
+                    @if $color != 'var(--color-primary-500)' {
+                        background-color: darken($color, 10%);
+                    }
                 }
             }
         }
